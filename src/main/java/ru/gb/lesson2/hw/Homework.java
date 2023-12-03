@@ -20,8 +20,27 @@ public class Homework {
   }
 
   static class MyTest {
+    @BeforeAll
+    void beforeAll(){
+      System.out.println("beforeAll запущен");
+    }
 
-    @Test
+    @BeforeEach
+    void beforeEach(){
+      System.out.println("beforeEach запущен");
+    }
+
+    @AfterAll
+    void afterAll(){
+      System.out.println("afterAll запущен");
+    }
+
+    @AfterEach
+    void afterEach(){
+      System.out.println("afterEach запущен");
+    }
+
+    @Test(order = -2)
     void firstTest() {
       System.out.println("firstTest запущен");
     }
@@ -31,9 +50,25 @@ public class Homework {
       System.out.println("secondTest запущен");
     }
 
+    @Test(order = -10)
+    void thirdTest() {
+      System.out.println("thirdTest запущен");
+    }
+
+    @Test(order = 4)
+    void forthTest() {
+      System.out.println("forthTest запущен");
+    }
+
+    @Test
+    @Skip
+    void fifthTest() {
+      System.out.println("fifthTest запущен");
+    }
+
+    @Test(skip = true)
+    void sixthTest() {
+      System.out.println("sixthTest запущен");
+    }
   }
-
-
-
-
 }
